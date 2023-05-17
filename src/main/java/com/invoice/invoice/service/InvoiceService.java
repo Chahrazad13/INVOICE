@@ -16,7 +16,7 @@ public class InvoiceService {
 
     InvoiceRepository invoiceRepository;
 
-        public void create(Invoice invoice){invoiceRepository.save(invoice);}
+        public void save(Invoice invoice){invoiceRepository.save(invoice);}
 
 
         public Optional<Invoice> findById(Long id){

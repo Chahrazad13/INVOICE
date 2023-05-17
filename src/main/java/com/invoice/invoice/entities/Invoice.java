@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -24,12 +23,12 @@ public class Invoice {
     private LocalDateTime echeanceDate;
     private String reglement;
 
-    @OneToOne
+    @ManyToOne
     private Client client;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="products_invoices", joinColumns = @JoinColumn(name = "invoices_id"),
-    inverseJoinColumns = @JoinColumn(name = "products_id"))
+    @JoinTable(name = "products_invoices", joinColumns = @JoinColumn(name = "invoices_id"),
+            inverseJoinColumns = @JoinColumn(name = "products_id"))
     private List<Product> products;
 
 }

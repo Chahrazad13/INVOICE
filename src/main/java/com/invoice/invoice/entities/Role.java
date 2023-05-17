@@ -20,6 +20,10 @@ public class Role {
 
     @ManyToMany
     private List<User> userList;
+
+    public Role(String name) {
+        this.name = name;
     }
+}
 
 

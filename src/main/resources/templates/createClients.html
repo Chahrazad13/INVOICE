@@ -64,22 +64,19 @@
             <label>Phone number</label>
             <input type="text" class="form-control" th:field="*{telephone}">
         </div>
-        <form class="col-md-4 offset-md-4" th:action="@{/saveAdresse}" th:object="${adresse}" method="post">
             <div class="mb-3">
                 <label>Street</label>
                 <input type="text" class="form-control" th:field="*{street}">
             </div>
-
-            <div class="mb-3">
-                <label>City</label>
-                <input type="text" class="form-control" th:field="*{city}">
-            </div>
-
             <div class="mb-3">
                 <label>Zipcode</label>
                 <input type="text" class="form-control" th:field="*{zipcode}">
             </div>
-        </form>
+        <div class="mb-3">
+                <label>City</label>
+                <input type="text" class="form-control" th:field="*{ville}">
+            </div>
+
 
 
         <center>

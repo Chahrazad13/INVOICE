@@ -17,7 +17,7 @@ public class ClientService {
     ClientRepository clientRepository;
 
 
-        public void create(Client client){
+        public void save(Client client){
 
            clientRepository.save(client);
         }

@@ -26,14 +26,14 @@ public class ClientController {
     }
 
     @GetMapping("/all_Clients")
-    public ModelAndView getAllContacts() {
+    public ModelAndView getAllClients() {
         List<Client> list = new ArrayList<>();
         list = clientService.findAll();
         return new ModelAndView("allClients", "client", list);
     }
 
     @GetMapping("/saveClient")
-    public String addContact(Model model) {
+    public String addClient(Model model) {
         Client client;
         model.addAttribute("client", new Client());
 

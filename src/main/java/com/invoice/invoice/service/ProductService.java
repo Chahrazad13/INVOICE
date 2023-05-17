@@ -17,7 +17,7 @@ public class ProductService {
     ProductRepository productRepository;
 
 
-        public void create(Product product){productRepository.save(product);}
+        public void save(Product product){productRepository.save(product);}
 
 
         public Optional<Product> findById(Long id){

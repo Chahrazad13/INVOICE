@@ -12,8 +12,6 @@
     <title>New Client register</title>
 </head>
 <body>
-
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkseagreen;">
     <div class="container-fluid">
         <a class="navbar-brand text-blue" href="#"> Invoice Manager </a>
@@ -58,10 +56,7 @@
             <label>Date of issue</label>
             <input type="datetime-local" class="form-control" th:field="*{date}">
         </div>
-        <div class="mb-3">
-            <label>End date</label>
-            <input type="datetime-local" class="form-control" th:field="*{echeanceDate}">
-        </div>
+
         <div class="mb-3">
             <label>Payment method</label>
             <input type="text" class="form-control" th:field="*{reglement}">

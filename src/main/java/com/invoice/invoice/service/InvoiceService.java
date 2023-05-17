@@ -7,6 +7,8 @@ import com.invoice.invoice.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,8 +18,12 @@ public class InvoiceService {
 
     InvoiceRepository invoiceRepository;
 
-        public void save(Invoice invoice){invoiceRepository.save(invoice);}
-
+        public void save(Invoice invoice){
+            LocalDateTime date = invoice.getDate();
+            LocalDateTime echeanceDate = date.plusMonths(1);
+            invoice.setEcheanceDate(echeanceDate);
+            invoiceRepository.save(invoice);
+        }
 
         public Optional<Invoice> findById(Long id){
             return invoiceRepository.findById(id);

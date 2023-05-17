@@ -13,9 +13,9 @@ public class Adresse {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    String rue;
-    int cp;
-    String ville;
+    String street;
+    int zipcode;
+    String city;
 
     @OneToOne
     Client client;

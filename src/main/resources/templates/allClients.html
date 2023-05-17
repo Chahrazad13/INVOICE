@@ -1,10 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>All Clients</title>
+    <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkseagreen;">
+    <div class="container-fluid">
+        <a class="navbar-brand text-blue" href="#"> Invoice Manager </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-black" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="saveClient"> New Client </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="saveProduct"> New Product </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="saveInvoice"> New Invoice </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="all_Products"> All Products </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="all_Invoices"> All Invoices </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5 col-md-8" th:action="@{/all_Clients}" th:object="${client}" method="get">
+    <table class="table  table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">enterprise</th>
+            <th scope="col">telephone</th>
+            <th scope="col">street</th>
+            <th scope="col">zipcode</th>
+            <th scope="col">ville</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c :${client}">
+            <td th:text="${c.enterprise}"></td>
+            <td th:text="${c.telephone}"></td>
+            <td th:text="${c.street}"></td>
+            <td th:text="${c.zipcode}"></td>
+            <td th:text="${c.ville}"></td>
+            <td>
+
+                <a style="color:red" th:href="@{/deleteClient/{id}(id=${c.id})}"><i class="fa-solid fa-trash ms-4"></i></a>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

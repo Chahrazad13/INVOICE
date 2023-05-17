@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -16,8 +18,10 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Date date;
-    private Date echeanceDate;
+    @DateTimeFormat
+    private LocalDateTime date;
+    @DateTimeFormat
+    private LocalDateTime echeanceDate;
     private String reglement;
 
     @OneToOne

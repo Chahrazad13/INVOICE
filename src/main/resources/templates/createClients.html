@@ -57,6 +57,10 @@
     <h4 class="text-center">New Client</h4>
     <form class="col-md-4 offset-md-4" th:action="@{/saveClient}" th:object="${client}" method="post">
         <div class="mb-3">
+            <label>ID</label>
+            <input type="text" class="form-control" th:field="*{id}" readonly>
+        </div>
+        <div class="mb-3">
             <label>Company</label>
             <input type="text" class="form-control" th:field="*{enterprise}">
         </div>

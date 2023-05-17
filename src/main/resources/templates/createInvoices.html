@@ -9,7 +9,7 @@
             rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous">
-    <title>New Invoice register</title>
+    <title>New Client register</title>
 </head>
 <body>
 
@@ -17,13 +17,20 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkseagreen;">
     <div class="container-fluid">
         <a class="navbar-brand text-blue" href="#"> Invoice Manager </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active text-black" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="saveClient"> New Client </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="saveProduct"> New Product </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-black" href="all_Clients"> All Clients </a>
@@ -36,31 +43,40 @@
                 </li>
             </ul>
 
-            <div>
-                <a class="nav-link text-black" href="save">Add new Client</a>
-            </div>
         </div>
     </div>
 </nav>
 
 <div class="container my-5 p-5" style="border:1px solid black;">
     <h4 class="text-center">New Invoice</h4>
-    <form class="col-md-4 offset-md-4"  th:action="@{/saveInvoice}" th:object="${invoice}"method="post">
+    <form class="col-md-4 offset-md-4" th:action="@{/saveInvoice}" th:object="${invoice}" method="post">
         <div class="mb-3">
-            <label>Company</label>
-            <input type="text" class="form-control" th:field="*{date}">
-        </div>
-
-        <div class="mb-3">
-            <label>Adress</label>
-            <input type="text" class="form-control" th:field="*{echeanceDate}">
+            <label>ID</label>
+            <input type="text" class="form-control" th:field="*{id}" readonly>
         </div>
         <div class="mb-3">
-            <label>Phone number</label>
+            <label>Date of issue</label>
+            <input type="datetime-local" class="form-control" th:field="*{date}">
+        </div>
+        <div class="mb-3">
+            <label>End date</label>
+            <input type="datetime-local" class="form-control" th:field="*{echeanceDate}">
+        </div>
+        <div class="mb-3">
+            <label>Payment method</label>
             <input type="text" class="form-control" th:field="*{reglement}">
         </div>
-
-        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+        <div class="mb-3">
+            <label>Client ID</label>
+            <input type="text" class="form-control" th:field="*{client}">
+        </div>
+        <div class="mb-3">
+            <label>Product ID</label>
+            <input type="text" class="form-control" th:field="*{products}">
+        </div>
+        <center>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </center>
     </form>
 </div>
 

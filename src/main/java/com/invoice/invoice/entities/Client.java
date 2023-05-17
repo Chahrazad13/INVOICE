@@ -4,12 +4,15 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Client {
 
     @Id
@@ -22,6 +25,6 @@ public class Client {
     private String zipcode;
     private String ville;
 
-    @OneToOne(mappedBy = "client")
-    private Invoice invoice;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Invoice> invoice;
 }

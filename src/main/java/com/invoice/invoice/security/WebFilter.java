@@ -15,9 +15,9 @@ public class WebFilter {
                 })
                 .formLogin(form -> {
                     form
-                            .loginPage("/login")               // Indique que je souhaite utilser mon propre thymeleaf
-                            .usernameParameter("email")       // <input name="email">
-                            .passwordParameter("password")    // <input name="password">
+                            .loginPage("/login")
+                            .usernameParameter("email")
+                            .passwordParameter("password")
                             .permitAll()
                             .defaultSuccessUrl("/profile");
                 })

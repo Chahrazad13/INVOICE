@@ -58,16 +58,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="c :${client}">
+        <tr th:each="c:${client}">
             <td th:text="${c.enterprise}"></td>
             <td th:text="${c.telephone}"></td>
             <td th:text="${c.street}"></td>
             <td th:text="${c.zipcode}"></td>
             <td th:text="${c.ville}"></td>
-            <td>
 
-                <a style="color:red" th:href="@{/deleteClient/{id}(id=${c.id})}"><i class="fa-solid fa-trash ms-4"></i></a>
-            </td>
 
         </tr>
 

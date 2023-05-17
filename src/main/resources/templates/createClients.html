@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+    <title>New Client register</title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkseagreen;">
+    <div class="container-fluid">
+        <a class="navbar-brand text-blue" href="#"> Invoice Manager </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-black" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Create
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="saveClient">Create Clients</a>
+                        <a class="dropdown-item" href="saveProduct">Create Products</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="saveInvoice">Create Invoices</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="all_Clients"> All Clients </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="all_Products"> All Products </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black" href="all_Invoices"> All Invoices </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5 p-5" style="border:1px solid black;">
+    <h4 class="text-center">New Client</h4>
+    <form class="col-md-4 offset-md-4" th:action="@{/saveClient}" th:object="${client}" method="post">
+        <div class="mb-3">
+            <label>Company</label>
+            <input type="text" class="form-control" th:field="*{enterprise}">
+        </div>
+        <div class="mb-3">
+            <label>Phone number</label>
+            <input type="text" class="form-control" th:field="*{telephone}">
+        </div>
+        <form class="col-md-4 offset-md-4" th:action="@{/saveAdresse}" th:object="${adresse}" method="post">
+            <div class="mb-3">
+                <label>Street</label>
+                <input type="text" class="form-control" th:field="*{street}">
+            </div>
+
+            <div class="mb-3">
+                <label>City</label>
+                <input type="text" class="form-control" th:field="*{city}">
+            </div>
+
+            <div class="mb-3">
+                <label>Zipcode</label>
+                <input type="text" class="form-control" th:field="*{zipcode}">
+            </div>
+        </form>
+
+
+        <center>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </center>
+    </form>
+</div>
+
+</body>
+</html>
